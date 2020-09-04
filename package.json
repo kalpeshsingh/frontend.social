@@ -9,7 +9,7 @@
 		"start": "node server.js",
 		"test": "vue-cli-service test:unit",
 		"commit": "cz",
-		"format": "prettier --write \"src/**/*.{js,vue,json,css,md}\""
+		"format": "prettier --write"
 	},
 	"dependencies": {
 		"@ckeditor/ckeditor5-build-classic": "^18.0.0",
@@ -66,6 +66,7 @@
 		"eslint-plugin-vue": "^5.2.3",
 		"lint-staged": "^8.1.5",
 		"mem": "^5.1.1",
+		"prettier": "^2.1.1",
 		"sass": "^1.25.0",
 		"sass-loader": "^7.1.0",
 		"vue-template-compiler": "^2.6.11"
