@@ -3,7 +3,9 @@
     <table>
       <td class="td">
         <router-link :to="'../event/' + event.uniqueId">
-          {{ event.title }}
+          {{
+            event.title
+          }}
         </router-link>
       </td>
       <td>

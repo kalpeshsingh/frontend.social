@@ -46,13 +46,13 @@ import { Tweet } from 'vue-tweet-embed';
 export default {
 	name: 'TipStrip',
 	components: {
-		Tweet,
+		Tweet
 	},
 	props: {
 		tip: {
 			type: Object,
-			required: true,
-		},
+			required: true
+		}
 	},
 	computed: {
 		signedInUser() {
@@ -69,8 +69,8 @@ export default {
 			return this.tip.twitterLink.split('/status/')[1];
 		},
 		tags() {
-			return this.tip.tags.map((tip) => `#${tip}`).join(' ');
-		},
+			return this.tip.tags.map(tip => `#${tip}`).join(' ');
+		}
 	},
 	methods: {
 		deleteTip() {
@@ -78,8 +78,8 @@ export default {
 		},
 		editTip() {
 			this.$router.push(`/tip/form/${this.tip._id}`);
-		},
-	},
+		}
+	}
 };
 </script>
 
