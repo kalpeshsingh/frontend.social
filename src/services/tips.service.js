@@ -20,7 +20,4 @@ export default {
 	updateTip(id, payload) {
 		return httpClient.put(`tip/${id}`, payload);
 	},
-	getTipsAddedOnDate: (createdAt) => {
-		return httpClient.get('tip/analytics/' + createdAt);
-	},
 };

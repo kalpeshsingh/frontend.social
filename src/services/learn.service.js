@@ -10,7 +10,4 @@ export default {
 	addArticle: (article) => {
 		return httpClient.post('article', article);
 	},
-	getArticlesAddedOnDate: (createdAt) => {
-		return httpClient.get('article/analytics/' + createdAt);
-	},
 };

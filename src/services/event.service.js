@@ -73,7 +73,4 @@ export default {
 		query = query || '';
 		return httpClient.get('event/get/past?' + query + pagination);
 	},
-	getEventsAddedOnDate: (createdAt) => {
-		return httpClient.get('event/analytics/' + createdAt);
-	},
 };

@@ -1,97 +1,63 @@
 <template>
-  <div>
-    <div class="form-container">
-      <form
-        id="addChallengeForm"
-        @submit.prevent="processForm"
-      >
-        <div class="form-field">
-          <div class="form-label">
-            Title
-          </div>
-          <input
-            v-model="title"
-            type="text"
-            required
-          >
-        </div>
-        <div class="form-field">
-          <div class="form-label">
-            Problem Statement Url
-          </div>
-          <input
-            v-model="problemStatementUrl"
-            type="text"
-          >
-        </div>
-        <div class="problemStatement form-field">
-          <div class="form-label">
-            Problem Statement
-          </div>
-          <ckeditor
-            v-model="problemStatement"
-            :editor="editor"
-            :config="editorConfig"
-            class="editor"
-          />
-        </div>
-        <div class="form-field">
-          <div class="form-label">
-            Date
-          </div>
-          <div class="form-field date">
-            <div>
-              <span class="date">Start</span>
-              <input
-                type="date"
-                class="editable-value"
-                :value="startDate"
-                @change="onStartDateChange"
-              >
-            </div>
-            <div>
-              <span class="date">End</span>
-              <input
-                type="date"
-                class="editable-value"
-                :value="endDate"
-                @change="onEndDateChange"
-              >
-            </div>
-          </div>
-        </div>
-        <div class="tags form-field">
-          <div class="form-label">
-            Tags
-          </div>
-          <input
-            v-model="tags"
-            type="text"
-          >
-        </div>
-        <div class="form-field">
-          <div class="form-label" />
-          <Checkbox
-            id="published"
-            label="Published"
-            :is-checked="published"
-            :on-click="togglePublished"
-          />
-        </div>
-        <div class="action-links">
-          <button
-            type="submit"
-            class="btn-add-job"
-          >
-            Save
-          </button>
-          <button @click="close">
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
+	<div>
+		<div class="form-container">
+			<form id="addChallengeForm" @submit.prevent="processForm">
+				<div class="form-field">
+					<div class="form-label">Title</div>
+					<input v-model="title" type="text" required />
+				</div>
+				<div class="problemStatement form-field">
+					<div class="form-label">Problem Statement</div>
+					<ckeditor
+						v-model="problemStatement"
+						:editor="editor"
+						:config="editorConfig"
+						class="editor"
+					/>
+				</div>
+				<div class="form-field">
+					<div class="form-label">Date</div>
+					<div class="form-field date">
+						<div>
+							<span class="date">Start</span>
+							<input
+								type="date"
+								class="editable-value"
+								:value="startDate"
+								@change="onStartDateChange"
+							/>
+						</div>
+						<div>
+							<span class="date">End</span>
+							<input
+								type="date"
+								class="editable-value"
+								:value="endDate"
+								@change="onEndDateChange"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="tags form-field">
+					<div class="form-label">Tags</div>
+					<input v-model="tags" type="text" />
+				</div>
+				<div class="form-field">
+					<div class="form-label" />
+					<Checkbox
+						id="published"
+						label="Published"
+						:is-checked="published"
+						:on-click="togglePublished"
+					/>
+				</div>
+				<div class="action-links">
+					<button type="submit" class="btn-add-job">Save</button>
+					<button @click="close">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -102,6 +68,7 @@ import { ToastType, messages } from '@/constants/constants';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Checkbox from '@/components/Checkbox/Checkbox';
 import challengesService from '@/services/challenges.service';
+
 export default {
 	name: 'AddChallenge',
 	components: {
@@ -111,7 +78,6 @@ export default {
 		return {
 			id: null,
 			title: '',
-			problemStatementUrl: null,
 			problemStatement: '',
 			tags: '',
 			published: false,
@@ -131,7 +97,6 @@ export default {
 			this.loading = true;
 			const details = await challengesService.getChallengeById(id);
 			this.title = details.title;
-			this.problemStatementUrl = details.problemStatementUrl;
 			this.problemStatement = details.problemStatement;
 			this.tags = details.tags.join();
 			this.startDate = this.getFormattedDate(this.startTime);
@@ -150,19 +115,8 @@ export default {
 	},
 	methods: {
 		processForm(event) {
-			if (!this.title) {
-				alert('Please specify Challenge title');
-				return;
-			} else if (!this.problemStatementUrl && !this.problemStatement) {
-				alert('Please specify URL OR Blog problemStatement');
-				return;
-			} else if (this.problemStatementUrl && this.problemStatement) {
-				alert('Please Enter Either Blog URL or Blog problemStatement');
-				return;
-			}
 			const payload = {
 				title: this.title,
-				problemStatementUrl: this.problemStatementUrl,
 				problemStatement: this.problemStatement,
 				tags: this.getTags(),
 				startTime: this.startDate,

@@ -14,7 +14,4 @@ export default {
 	getBlogById: (id) => {
 		return httpClient.get(`blog/${id}`);
 	},
-	getBlogsAddedOnDate: (createdAt) => {
-		return httpClient.get('blog/analytics/' + createdAt);
-	},
 };

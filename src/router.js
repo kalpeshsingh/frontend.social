@@ -59,11 +59,6 @@ const router = new Router({
 			component: () => import('./pages/Tools.vue'),
 		},
 		{
-			path: '/admin',
-			name: 'admin',
-			component: () => import('./pages/UserActivity.vue'),
-		},
-		{
 			path: '/tech/:skill',
 			name: 'techdetails',
 			component: () => import('./pages/SkillDetails.vue'),
@@ -144,26 +139,6 @@ const router = new Router({
 			component: () => import('./pages/Blog.vue'),
 		},
 		{
-			path: '/quiz',
-			name: 'quiz',
-			component: () => import('./pages/Quiz.vue'),
-		},
-		{
-			path: '/quiz/:id',
-			name: 'quizDetails',
-			component: () => import('./pages/QuizDetails.vue'),
-		},
-		{
-			path: '/quiz/:id/run/:runId',
-			name: 'quizRun',
-			component: () => import('./pages/QuizRun.vue'),
-		},
-		{
-			path: '/quiz/:id/play/:runId',
-			name: 'quizPlay',
-			component: () => import('./pages/QuizPlay.vue'),
-		},
-		{
 			path: '/blog/:id/:blogname',
 			name: 'blogDetails',
 			component: () => import('./pages/BlogDetails.vue'),
@@ -174,7 +149,7 @@ const router = new Router({
 			component: () => import('./pages/Challenges.vue'),
 		},
 		{
-			path: '/challenge/:uniqueId',
+			path: '/challenge/:id',
 			name: 'challengeDetails',
 			component: () => import('./pages/ChallengeDetails.vue'),
 		},

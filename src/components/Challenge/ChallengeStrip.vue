@@ -60,7 +60,6 @@
     </div>
     <div
       ref="description"
-      class="challenge-description"
       :class="{
         expanded: isExpanded,
         collapsed: isOverflow,
@@ -122,7 +121,7 @@ export default {
 			this.isOverflow = !this.isOverflow;
 		},
 		onClick() {
-			this.$router.push(`/challenge/${this.challenge.uniqueId}`);
+			this.$router.push(`/challenge/${this.challenge._id}`);
 		},
 		deleteChallenge() {
 			this.$emit('delete', this.challenge._id);
@@ -161,6 +160,7 @@ export default {
 .expanded {
 	max-height: unset;
 }
+
 .arrow-container {
 	display: flex;
 	justify-content: center;

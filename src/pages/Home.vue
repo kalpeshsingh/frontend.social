@@ -2,7 +2,7 @@
   <b-container>
     <b-row>
       <b-col md="9">
-        <!-- <a
+        <a
           href="https://react.geekle.us/"
           name="home_banner"
           target="_blank"
@@ -11,7 +11,7 @@
             class="home-banner-top"
             src="/images/React_banner.png"
             alt="Home page banner"
-          ></a> -->
+          ></a>
 
         <h1>Find out What's new!</h1>
         <div class="home">
@@ -38,17 +38,14 @@
             <SignInButtons />
           </div>
         </div>
-        <div class="button-text">
+        <div class="vlog-text">
           <a @click="onVLogClick()">Catch up with...</a>
         </div>
-        <div class="button-text">
+        <div class="vlog-text">
           <a @click="onFreelancingClick()">All about Freelancing</a>
         </div>
-        <div class="button-text">
+        <div class="tool-tip-text">
           <a @click="onToolTipClick()">Tech Tip</a>
-        </div>
-        <div class="button-text">
-          <a @click="onCodeChallengeClick()">Code Challenge</a>
         </div>
         <!-- <div class="tool-tip-text">
           <a @click="onBlogClick()">Blogs</a>
@@ -152,9 +149,6 @@ export default {
 		onToolTipClick() {
 			this.$router.push('/tips');
 		},
-		onCodeChallengeClick() {
-			this.$router.push('/challenge');
-		},
 		onFreelancingClick() {
 			this.$router.push('/freelancing');
 		},
@@ -214,7 +208,8 @@ export default {
 	text-align: center;
 }
 
-.button-text {
+.vlog-text,
+.tool-tip-text {
 	border: 2px solid #114273;
 	margin: 0 auto;
 	text-align: center;

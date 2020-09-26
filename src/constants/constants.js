@@ -14,22 +14,12 @@ export const messages = {
 		challengeAddFailure: 'Error adding new Challenge',
 		challengeUpdateSuccess: 'Challenge updated successfully!',
 		challengeUpdateFailure: 'Error updating Challenge',
-		challengeSubmissionSuccess:
-			'Your answer submitted successfully! Please check back after end date for results',
-		challengeSubmissionFailure:
-			'Error submitting your answer! Please try again',
 	},
 	vLog: {
 		addSuccess: 'VLog added successfully!',
 		addFailure: 'Error adding new VLog',
 		updateSuccess: 'VLog updated successfully!',
 		updateFailure: 'Error updating VLog',
-	},
-	user: {
-		addSuccess: 'User added successfully!',
-		addFailure: 'Error adding new User',
-		updateSuccess: 'User updated successfully!',
-		updateFailure: 'Error updating User',
 	},
 	blog: {
 		addSuccess: 'blog added successfully!',

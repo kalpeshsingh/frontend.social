@@ -7,9 +7,6 @@ export default {
 	getChallengeById: (id) => {
 		return httpClient.get(`challenge/${id}`);
 	},
-	getChallengeByUniqueId: (id) => {
-		return httpClient.get(`challenge/byUniqueId/${id}`);
-	},
 	addChallenge(payload) {
 		return httpClient.post('challenge', payload);
 	},
@@ -44,8 +41,5 @@ export default {
 	},
 	deleteSubmission(id) {
 		return httpClient.delete(`submission/${id}`);
-	},
-	getSubmissionsAddedOnDate: (createdAt) => {
-		return httpClient.get('submission/analytics/' + createdAt);
 	},
 };

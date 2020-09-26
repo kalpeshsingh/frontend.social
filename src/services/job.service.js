@@ -19,11 +19,6 @@ export default {
 		const jobQuery = `job?${searchQuery}`;
 		return httpClient.get(jobQuery + pagination);
 	},
-
-	getJobsAddedOnDate: (createdAt) => {
-		return httpClient.get('job/analytics/' + createdAt);
-	},
-
 	getJobsOnSearchParamsChange: (query, limit = 100, page = 1) => {
 		var pagination = '&limit=' + limit + '&page=' + page;
 

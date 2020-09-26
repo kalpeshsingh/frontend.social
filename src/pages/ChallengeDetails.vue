@@ -52,12 +52,6 @@
             style="margin-top: 10px"
           >
             <h1>Problem Statement</h1>
-            <vue-markdown :source="problemStatement" />
-          </b-col>
-          <b-col
-            md="12"
-            style="margin-top: 10px"
-          >
             <div v-html="challenge.problemStatement" />
           </b-col>
         </b-row>
@@ -98,7 +92,6 @@ import challengeService from '@/services/challenges.service';
 import eventBus from '@/utilities/eventBus';
 import { ToastType, messages } from '@/constants/constants';
 import SkillTags from '@/components/Skills/SkillTags';
-import VueMarkdown from 'vue-markdown';
 
 export default {
 	name: 'ChallengeDetails',
@@ -106,7 +99,6 @@ export default {
 		AddSubmission,
 		Submission,
 		SkillTags,
-		VueMarkdown,
 	},
 	data() {
 		return {
@@ -115,7 +107,6 @@ export default {
 			challenge: {},
 			loading: true,
 			submissions: [],
-			problemStatement: '',
 		};
 	},
 	computed: {
@@ -125,7 +116,7 @@ export default {
 	},
 	async created() {
 		this.loading = true;
-		this.challengeId = this.$route.params.uniqueId;
+		this.challengeId = this.$route.params.id;
 		if (!this.challengeId) {
 			this.failedToFindChallenge = true;
 			return;
@@ -148,13 +139,9 @@ export default {
 		},
 		getChallenge() {
 			return challengeService
-				.getChallengeByUniqueId(this.challengeId)
+				.getChallengeById(this.challengeId)
 				.then((challenge) => {
 					this.challenge = challenge;
-					fetch(this.challenge.problemStatementUrl)
-						.then((response) => response.text())
-						.then((response) => (this.problemStatement = response));
-
 					this.loading = false;
 				})
 				.catch(() => {

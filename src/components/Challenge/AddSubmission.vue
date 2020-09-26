@@ -30,7 +30,6 @@
 import eventBus from '@/utilities/eventBus';
 import EditableValue from '@/components/common/EditableValue';
 import challengeService from '@/services/challenges.service';
-import { ToastType, messages } from '@/constants/constants';
 
 export default {
 	name: 'AddSubmission',
@@ -59,19 +58,7 @@ export default {
 					})
 					.then(() => {
 						this.$emit('save', this.submission);
-						eventBus.$emit('show-toast', {
-							body: messages.challenge.challengeSubmissionSuccess,
-							title: messages.generic.success,
-						});
-
 						this.reset();
-					})
-					.catch((error) => {
-						eventBus.$emit('show-toast', {
-							body: messages.challenge.challengeSubmissionFailure,
-							title: messages.generic.error,
-							type: ToastType.ERROR,
-						});
 					});
 			}
 		},

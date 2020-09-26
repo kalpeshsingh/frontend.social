@@ -13,10 +13,6 @@ export default {
 		return httpClient.get('user/' + username);
 	},
 
-	getUsersAddedOnDate: (createdAt) => {
-		return httpClient.get('users/analytics/' + createdAt);
-	},
-
 	updateUserProfile: (profile) => {
 		return httpClient.put('me', profile);
 	},
