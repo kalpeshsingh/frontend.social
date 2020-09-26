@@ -27,13 +27,22 @@ import { Tweet } from 'vue-tweet-embed';
 export default {
 	name: 'TipStrip',
 	components: {
+<<<<<<< HEAD
 		Tweet
+=======
+		Tweet,
+>>>>>>> chore(package): rebase from remote master
 	},
 	props: {
 		tip: {
 			type: Object,
+<<<<<<< HEAD
 			required: true
 		}
+=======
+			required: true,
+		},
+>>>>>>> chore(package): rebase from remote master
 	},
 	computed: {
 		signedInUser() {
@@ -50,8 +59,13 @@ export default {
 			return this.tip.twitterLink.split('/status/')[1];
 		},
 		tags() {
+<<<<<<< HEAD
 			return this.tip.tags.map(tip => `#${tip}`).join(' ');
 		}
+=======
+			return this.tip.tags.map((tip) => `#${tip}`).join(' ');
+		},
+>>>>>>> chore(package): rebase from remote master
 	},
 	methods: {
 		deleteTip() {
@@ -59,8 +73,13 @@ export default {
 		},
 		editTip() {
 			this.$router.push(`/tip/form/${this.tip._id}`);
+<<<<<<< HEAD
 		}
 	}
+=======
+		},
+	},
+>>>>>>> chore(package): rebase from remote master
 };
 </script>
 

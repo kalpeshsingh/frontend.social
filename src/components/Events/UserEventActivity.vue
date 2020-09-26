@@ -3,9 +3,13 @@
     <table>
       <td class="td">
         <router-link :to="'../event/' + event.uniqueId">
+<<<<<<< HEAD
           {{
             event.title
           }}
+=======
+          {{ event.title }}
+>>>>>>> chore(package): rebase from remote master
         </router-link>
       </td>
       <td>

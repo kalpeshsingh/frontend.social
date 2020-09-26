@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <table>
       <td class="td">
@@ -17,6 +18,24 @@
       </td>
     </table>
   </div>
+=======
+	<div>
+		<table>
+			<td class="td">
+				<router-link :to="'../blog/' + blog._id + '/' + blog.title">
+					{{ blog.title }} by {{ blog.author }}
+				</router-link>
+			</td>
+			<td>
+				<img
+					:src="profileData.profilePic"
+					class="profile-photo"
+					alt="Profile Pic"
+				/>
+			</td>
+		</table>
+	</div>
+>>>>>>> chore(package): rebase from remote master
 </template>
 <script>
 import userService from '@/services/user.service';

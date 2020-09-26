@@ -32,17 +32,30 @@ import { ToastType, messages } from '@/constants/constants';
 export default {
 	name: 'AddSubmission',
 	components: {
+<<<<<<< HEAD
 		EditableValue
+=======
+		EditableValue,
+>>>>>>> chore(package): rebase from remote master
 	},
 	props: {
 		challengeId: {
 			type: String,
+<<<<<<< HEAD
 			required: true
 		}
 	},
 	data() {
 		return {
 			submission: ''
+=======
+			required: true,
+		},
+	},
+	data() {
+		return {
+			submission: '',
+>>>>>>> chore(package): rebase from remote master
 		};
 	},
 
@@ -52,22 +65,38 @@ export default {
 				challengeService
 					.postSubmission({
 						submission: this.$refs.submissionBox.editedValue,
+<<<<<<< HEAD
 						challengeId: this.challengeId
+=======
+						challengeId: this.challengeId,
+>>>>>>> chore(package): rebase from remote master
 					})
 					.then(() => {
 						this.$emit('save', this.submission);
 						eventBus.$emit('show-toast', {
 							body: messages.challenge.challengeSubmissionSuccess,
+<<<<<<< HEAD
 							title: messages.generic.success
+=======
+							title: messages.generic.success,
+>>>>>>> chore(package): rebase from remote master
 						});
 
 						this.reset();
 					})
+<<<<<<< HEAD
 					.catch(error => {
 						eventBus.$emit('show-toast', {
 							body: messages.challenge.challengeSubmissionFailure,
 							title: messages.generic.error,
 							type: ToastType.ERROR
+=======
+					.catch((error) => {
+						eventBus.$emit('show-toast', {
+							body: messages.challenge.challengeSubmissionFailure,
+							title: messages.generic.error,
+							type: ToastType.ERROR,
+>>>>>>> chore(package): rebase from remote master
 						});
 					});
 			}
@@ -75,8 +104,13 @@ export default {
 		reset() {
 			this.$refs.submissionBox.selectItem('');
 			this.submission = '';
+<<<<<<< HEAD
 		}
 	}
+=======
+		},
+	},
+>>>>>>> chore(package): rebase from remote master
 };
 </script>
 <style lang="scss" scoped>
