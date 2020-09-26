@@ -102,21 +102,12 @@ export default {
 	text-align: right;
 }
 .filters-wrapper {
-<<<<<<< HEAD
-  height: 100%;
-  border-left: 1px solid #114273;
-  flex-direction: column;
-  display: flex;
-  text-align: start;
-  cursor: pointer;
-=======
 	height: 100%;
 	border-left: 1px solid #114273;
 	flex-direction: column;
 	display: flex;
 	text-align: start;
 	cursor: pointer;
->>>>>>> chore(package): rebase from remote master
 }
 
 .skills {

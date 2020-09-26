@@ -1,24 +1,43 @@
 <template>
-	<div class="tip">
-		<div class="tip-title">
-			<div class="info-section">
-				<span v-if="canModify" class="event-action" @click.prevent="editTip">
-					<img :src="`/images/edit.svg`" class="icon-button" alt="edit" />
-				</span>
-				<span v-if="canModify" class="event-action" @click.prevent="deleteTip">
-					<img :src="`/images/delete.svg`" class="icon-button" alt="delete" />
-				</span>
-			</div>
-		</div>
-		<Tweet :id="tweetId" class="tip-wrapper">
-			<div class="spinner">
-				loading...
-			</div>
-		</Tweet>
-		<div class="tool-tip-tags">
-			{{ tags }}
-		</div>
-	</div>
+  <div class="tip">
+    <div class="tip-title">
+      <div class="info-section">
+        <span
+          v-if="canModify"
+          class="event-action"
+          @click.prevent="editTip"
+        >
+          <img
+            :src="`/images/edit.svg`"
+            class="icon-button"
+            alt="edit"
+          >
+        </span>
+        <span
+          v-if="canModify"
+          class="event-action"
+          @click.prevent="deleteTip"
+        >
+          <img
+            :src="`/images/delete.svg`"
+            class="icon-button"
+            alt="delete"
+          >
+        </span>
+      </div>
+    </div>
+    <Tweet
+      :id="tweetId"
+      class="tip-wrapper"
+    >
+      <div class="spinner">
+        loading...
+      </div>
+    </Tweet>
+    <div class="tool-tip-tags">
+      {{ tags }}
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,22 +46,13 @@ import { Tweet } from 'vue-tweet-embed';
 export default {
 	name: 'TipStrip',
 	components: {
-<<<<<<< HEAD
-		Tweet
-=======
 		Tweet,
->>>>>>> chore(package): rebase from remote master
 	},
 	props: {
 		tip: {
 			type: Object,
-<<<<<<< HEAD
-			required: true
-		}
-=======
 			required: true,
 		},
->>>>>>> chore(package): rebase from remote master
 	},
 	computed: {
 		signedInUser() {
@@ -59,13 +69,8 @@ export default {
 			return this.tip.twitterLink.split('/status/')[1];
 		},
 		tags() {
-<<<<<<< HEAD
-			return this.tip.tags.map(tip => `#${tip}`).join(' ');
-		}
-=======
 			return this.tip.tags.map((tip) => `#${tip}`).join(' ');
 		},
->>>>>>> chore(package): rebase from remote master
 	},
 	methods: {
 		deleteTip() {
@@ -73,13 +78,8 @@ export default {
 		},
 		editTip() {
 			this.$router.push(`/tip/form/${this.tip._id}`);
-<<<<<<< HEAD
-		}
-	}
-=======
 		},
 	},
->>>>>>> chore(package): rebase from remote master
 };
 </script>
 
