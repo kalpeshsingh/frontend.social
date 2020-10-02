@@ -34,6 +34,12 @@ npm install
 npm run serve
 ```
 
+### Run api server on localhost
+
+Api Server : https://github.com/shoonyatech/frontend-social-api
+
+Follow steps in this repo to setup API server on localhost using test DB
+
 ### Run your tests
 
 ```
@@ -56,6 +62,13 @@ git pull upstream master --rebase
 ```
 
 ### Create local commit
+
+We believe in proper commit messages to maintain consistency in the
+project. You can either use `cz` command or write commit message in below format:
+
+` type(scope?): subject body? footer?`
+
+Example: feat(news-feed): add news feed feature on landing page
 
 ```
 git push origin master -f

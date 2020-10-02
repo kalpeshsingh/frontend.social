@@ -9,7 +9,8 @@
 		"start": "node server.js",
 		"test": "vue-cli-service test:unit",
 		"commit": "cz",
-		"format": "prettier --write"
+		"format": "prettier --write",
+		"format:all": "prettier --write \"src/**/*.{js,json,css,md}\""
 	},
 	"dependencies": {
 		"@ckeditor/ckeditor5-build-classic": "^18.0.0",
@@ -49,6 +50,8 @@
 		"vuex": "^3.1.2"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^9.1.2",
+		"@commitlint/config-conventional": "^9.1.2",
 		"@vue/cli-plugin-babel": "^3.12.1",
 		"@vue/cli-plugin-eslint": "^3.12.1",
 		"@vue/cli-plugin-pwa": "^4.4.6",
@@ -80,6 +83,7 @@
 		]
 	},
 	"gitHooks": {
+		"commit-msg": "commitlint -H https://github.com/shoonyatech/frontend.social#create-local-commit -e $GIT_PARAMS",
 		"pre-commit": "lint-staged"
 	},
 	"lint-staged": {

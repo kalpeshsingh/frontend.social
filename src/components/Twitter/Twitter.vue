@@ -1,21 +1,30 @@
 <template>
-  <div class="hello">
-    <blockquote
-      class="twitter-tweet"
-      data-lang="en"
-    >
-      <p
-        lang="en"
-        dir="ltr"
+  <div class="tip">
+    <p v-if="username == null || username === ''">
+      Username Unavailable !!
+    </p>
+    <section v-else>
+      <Timeline
+        :id="username"
+        :options="{ tweetLimit: '10', width: '600', height: '500' }"
+        source-type="profile"
       />
-      <a href="https://twitter.com/name/status/100" />
-    </blockquote>
+    </section>
   </div>
 </template>
 <script>
+import { Timeline } from 'vue-tweet-embed';
 export default {
-  name: 'Twitter',
-}
+	name: 'Twitter',
+	components: {
+		Timeline,
+	},
+	props: {
+		username: {
+			type: String,
+			default: () => {},
+		},
+	},
+};
 </script>
-<style scoped>
-</style>
+<style scoped></style>

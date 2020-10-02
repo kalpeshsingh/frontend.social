@@ -42,17 +42,27 @@
 
 <script>
 import { Tweet } from 'vue-tweet-embed';
-
+import userService from '@/services/user.service';
 export default {
 	name: 'TipStrip',
 	components: {
-		Tweet
+		Tweet,
 	},
 	props: {
 		tip: {
 			type: Object,
-			required: true
-		}
+			required: true,
+		},
+	},
+	data() {
+		return {
+			activity: {
+				title: '',
+				pageLink: '',
+				model: 't',
+				activityType: 'd',
+			},
+		};
 	},
 	computed: {
 		signedInUser() {
@@ -69,17 +79,25 @@ export default {
 			return this.tip.twitterLink.split('/status/')[1];
 		},
 		tags() {
-			return this.tip.tags.map(tip => `#${tip}`).join(' ');
-		}
+			return this.tip.tags.map((tip) => `#${tip}`).join(' ');
+		},
 	},
 	methods: {
 		deleteTip() {
-			this.$emit('delete', this.tip._id);
+			(this.activity.title = this.tip.twitterLink),
+				(this.activity.pageLink = this.tip.twitterLink),
+				this.$emit('delete', this.tip._id);
+			userService
+				.addActivities(this.activity)
+				.then((resp) => {})
+				.catch((err) => {
+					console.log(err);
+				});
 		},
 		editTip() {
 			this.$router.push(`/tip/form/${this.tip._id}`);
-		}
-	}
+		},
+	},
 };
 </script>
 

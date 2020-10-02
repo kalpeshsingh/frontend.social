@@ -35,17 +35,17 @@ import { ToastType, messages } from '@/constants/constants';
 export default {
 	name: 'AddSubmission',
 	components: {
-		EditableValue
+		EditableValue,
 	},
 	props: {
 		challengeId: {
 			type: String,
-			required: true
-		}
+			required: true,
+		},
 	},
 	data() {
 		return {
-			submission: ''
+			submission: '',
 		};
 	},
 
@@ -55,22 +55,22 @@ export default {
 				challengeService
 					.postSubmission({
 						submission: this.$refs.submissionBox.editedValue,
-						challengeId: this.challengeId
+						challengeId: this.challengeId,
 					})
 					.then(() => {
 						this.$emit('save', this.submission);
 						eventBus.$emit('show-toast', {
 							body: messages.challenge.challengeSubmissionSuccess,
-							title: messages.generic.success
+							title: messages.generic.success,
 						});
 
 						this.reset();
 					})
-					.catch(error => {
+					.catch((error) => {
 						eventBus.$emit('show-toast', {
 							body: messages.challenge.challengeSubmissionFailure,
 							title: messages.generic.error,
-							type: ToastType.ERROR
+							type: ToastType.ERROR,
 						});
 					});
 			}
@@ -78,8 +78,8 @@ export default {
 		reset() {
 			this.$refs.submissionBox.selectItem('');
 			this.submission = '';
-		}
-	}
+		},
+	},
 };
 </script>
 <style lang="scss" scoped>
